@@ -21,7 +21,7 @@ spam_notice = "Qayta qayta spam qilgan ban oladi!"
 
 JPG = "LOCAL/video_convertor.jpg"
 
-JPG0 = 'https://telegra.ph/file/d98c559b56ef884ef3bad.jpg'
+JPG0 = 'https://te.legra.ph/file/1509b9d4157f27ded246a.jpg'
 
 JPG2 = "LOCAL/20211215_165751.jpg"
 
