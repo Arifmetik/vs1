@@ -1,6 +1,3 @@
-#tg:chauhanMahesh/DroneBots
-#github.com/vasusen-code
-
 import heroku3 
 from .. import Drone, AUTH_USERS, ACCESS_CHANNEL, MONGODB_URI
 from telethon import events , Button
