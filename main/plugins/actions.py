@@ -49,9 +49,9 @@ async def rem_thumbnail(event):
     edit = await event.client.send_message(event.chat_id, 'Trying.')
     T = await db.get_thumb(event.sender_id)
     if T is None:
-        return await edit.edit('No thumbnail saved!')
+        return await edit.edit('Thumbnail saqlanmagan!')
     await db.rem_thumb_link(event.sender_id)
-    await edit.edit('Removed!')
+    await edit.edit('O’chirildi!')
     
 #Heroku--------------------------------------------------------------------------------------------------------------
    
@@ -80,7 +80,7 @@ async def LOG_START(event, ps_name):
     if not str(LOG_ID).startswith("-100"):
         chat = int("-100" + str(LOG_ID))
     Tag = mention(event.sender.first_name, event.sender_id)
-    text = f'{ps_name}\n\nUSER: {Tag}'
+    text = f'{ps_name}\n\nFoydalanuvchi: {Tag}'
     xx = await event.client.send_message(int(chat), text, link_preview=False)
     return xx
 
