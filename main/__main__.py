@@ -15,8 +15,8 @@ for name in files:
         plugin_name = patt.stem
         load_plugins(plugin_name.replace(".py", ""))
         
-print("Successfully deployed!")
-print("#MaheshChauhan • #DroneBots")
+print("Joylash bajarildi!")
+print("Ajoyib")
 
 if __name__ == "__main__":
     Aziko.run_until_disconnected()
