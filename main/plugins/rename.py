@@ -1,6 +1,3 @@
-#TG:ChauhanMahesh/DroneBots
-#Github.com/Vasusen-code
-
 import os
 import time
 import requests
