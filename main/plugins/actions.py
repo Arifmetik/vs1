@@ -1,5 +1,5 @@
 import heroku3 
-from .. import Drone, AUTH_USERS, ACCESS_CHANNEL, MONGODB_URI
+from .. import Aziko, AUTH_USERS, ACCESS_CHANNEL, MONGODB_URI
 from telethon import events , Button
 from decouple import config
 from main.Database.database import Database
