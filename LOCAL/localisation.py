@@ -10,11 +10,11 @@ info_text = "Bot admini @lfraganus\n"
 
 help_text = "Menga video yuboring. Men uni o'zgartiraman\n\ncompress - videoni siqish\nconvert - audio yoki video formatini o‘zgartirish\nrename - faylni qayta nomlash\ntrim - videoni kesish" 
 
-source_text = "Diqqatingiz uchun rahmat😁"
+source_text = "Bizning videokonvertor botlarimiz"
 
 DEV = "https://t.me/lfraganus"
 
-spam_notice = "Qayta qayta spam qilgan ban oladi!"
+spam_notice = "Qayta qayta spam qilgan ban oladi! 500 mbdan ortiq video ishlov bergan odam 1 kunga bloklanadi. Sababi server botni bloklab qo’ymasligi uchun! :)"
 
 JPG = "LOCAL/video_convertor.jpg"
 
