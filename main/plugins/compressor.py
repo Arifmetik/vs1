@@ -4,7 +4,7 @@ import subprocess
 import re
 import os
 from datetime import datetime as dt
-from .. import Drone, BOT_UN, LOG_CHANNEL
+from .. import Aziko, BOT_UN, LOG_CHANNEL
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyfunc import video_metadata
@@ -15,8 +15,8 @@ from telethon.tl.types import DocumentAttributeVideo
 from main.plugins.actions import LOG_START, LOG_END
 
 async def compress(event, msg):
-    Drone = event.client
-    edit = await Drone.send_message(event.chat_id, "Process boshlandi", reply_to=msg.id)
+    Aziko = event.client
+    edit = await Aziko.send_message(event.chat_id, "Process boshlandi", reply_to=msg.id)
     new_name = "out_" + dt.now().isoformat("_", "seconds")
     if hasattr(msg.media, "document"):
         file = msg.media.document
@@ -43,7 +43,7 @@ async def compress(event, msg):
     log = await LOG_START(event, f'**Siqish boshlandi**\n\nBot navbat bilan ishlaydi')
     log_end_text = f'**Siqish yakunlandi**\n\nBot hozirda tekin'
     try:
-        await fast_download(n, file, Drone, edit, DT, "**Yuklanmoqda:**")
+        await fast_download(n, file, Aziko, edit, DT, "**Yuklanmoqda:**")
     except Exception as e:
         os.rmdir("compressmedia")
         await log.delete()
@@ -75,8 +75,8 @@ async def compress(event, msg):
     UT = time.time()
     if 'x-matroska' in mime:
         try:
-            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+            await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
         except Exception as e:
             await log.delete()
             await LOG_END(event, log_end_text)
@@ -85,8 +85,8 @@ async def compress(event, msg):
             return await edit.edit(f"Yuborishda xatolik!\n\nMurojat: [ADMIN]({SUPPORT_LINK})", link_preview=False)
     elif 'webm' in mime:
         try:
-            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+            await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
         except Exception as e:
             await log.delete()
             await LOG_END(event, log_end_text)
@@ -100,12 +100,12 @@ async def compress(event, msg):
         duration = metadata["duration"]
         attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, supports_streaming=True)]
         try:
-            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG3, attributes=attributes, force_document=False)
+            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+            await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG3, attributes=attributes, force_document=False)
         except Exception:
             try:
-                uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-                await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+                uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+                await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
             except Exception as e:
                 await log.delete()
                 await LOG_END(event, log_end_text)
