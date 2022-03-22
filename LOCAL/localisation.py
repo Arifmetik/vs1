@@ -1,6 +1,3 @@
-#Don't be a thief by stealing other's Hardwork, it took time and effort to make this repo.
-#Respect my work by not making any changes here.
-
 START_TEXT = "Menga video yuboring"
 
 FORCE_SUB_TEXT = "Botni ishlatish uchun kanalga obuna boʻling"
