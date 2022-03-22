@@ -1,6 +1,3 @@
-#TG:ChauhanMahesh/DroneBots
-#Github.com/vasusen-code
-
 import asyncio
 import time
 import subprocess
