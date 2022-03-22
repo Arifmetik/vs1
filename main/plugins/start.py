@@ -21,7 +21,7 @@ async def menu(event):
     await event.client.send_file(event.chat_id, caption="📑MENU.", file=file,
                     buttons=[[
                          Button.inline("info.", data="info"),
-                         Button.inline("Diqqat", data="source")],
+                         Button.inline("Boshqa", data="source")],
                          [
                          Button.inline("Qoida.", data="notice"),
                          Button.inline("Yordam.", data="help")],
@@ -34,7 +34,7 @@ async def menu2(event):
     await event.edit("📑MENU.",
                     buttons=[[
                          Button.inline("info.", data="info"),
-                         Button.inline("Diqqat", data="source")],
+                         Button.inline("Boshqa", data="source")],
                          [
                          Button.inline("Qoida.", data="notice"),
                          Button.inline("Yordam.", data="help")],
@@ -55,8 +55,9 @@ async def notice(event):
 async def source(event):
     await event.edit(source_text,
                     buttons=[[
-                         Button.url("Hozircha boʻsh", url="t.me/Azizbek_03"),
-                         Button.url("Hozircha boʻsh", url="t.me/Azizbek_03")]])
+                         Button.url("1-bot", url="t.me/videosiquvchi1bot"),
+                         Button.url("2-bot", url="t.me/videosiquvchi2bot"),
+                         Button.url("3-bot", url="t.me/videosiquvchi3bot")]])
                          
                     
 @Aziko.on(events.callbackquery.CallbackQuery(data="help"))
