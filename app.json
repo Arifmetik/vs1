@@ -1,6 +1,6 @@
 {
-    "name": "VideoConvertor",
-    "description": "A stable and Fast telegram video convertor bot which can compress, convert(video into audio and other video formats), rename and trim.",
+    "name": "Videosiquvchi",
+    "description": "Videoga ishlov beradi",
     "logo": "",
     "keywords": [
         "Best",
@@ -8,9 +8,9 @@
         "compressor",
         "bot"
     ],
-    "repository": "https://github.com/vasusen-code/VideoConvertor",
+    "repository": "https://github.com/Arifmetik/vs1/",
     "website": "",
-    "success_url": "https://t.me/DroneBots",
+    "success_url": "https://t.me/lfraganus",
     "env": {
         "API_HASH": {
             "description": "Your API HASH from my.telegram.org",
