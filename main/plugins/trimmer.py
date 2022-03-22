@@ -1,7 +1,3 @@
-#TG:ChauhanMahesh/DroneBots
-#Github.com/Vasusen-code
-
-
 import time
 import os
 from datetime import datetime as dt
