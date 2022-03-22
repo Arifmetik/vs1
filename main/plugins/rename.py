@@ -2,7 +2,7 @@ import os
 import time
 import requests
 from datetime import datetime as dt
-from .. import Drone, BOT_UN, MONGODB_URI
+from .. import Aziko, BOT_UN, MONGODB_URI
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyutils import rename
@@ -24,7 +24,7 @@ async def media_rename(event, msg, new_name):
         THUMB = path
     else:
         THUMB = t
-    Drone = event.client
+    Aziko = event.client
     DT = time.time()
     if hasattr(msg.media, "document"):
         file = msg.media.document
@@ -82,18 +82,18 @@ async def media_rename(event, msg, new_name):
                 name = msg.file.name
                 ext = (name.split("."))[1]
                 out = new_name + "." + ext
-                await fast_download(name, file, Drone, edit, DT, "**DOWNLOADING:**")
+                await fast_download(name, file, Aziko, edit, DT, "**DOWNLOADING:**")
                 rename(name, out)
                 UT = time.time()
-                uploader = await fast_upload(out, out, UT, Drone, edit, '**UPLOADING:**')
+                uploader = await fast_upload(out, out, UT, Aziko, edit, '**UPLOADING:**')
                 net_time = round(DT - UT)
-                await Drone.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
+                await Aziko.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
             except Exception as e:
                 await edit.edit(f"An error occured.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)
                 print(e)
                 return
     try:  
-        await fast_download(name, file, Drone, edit, DT, "**DOWNLOADING:**")
+        await fast_download(name, file, Aziko, edit, DT, "**DOWNLOADING:**")
     except Exception as e:
         await edit.edit(f"An error occured while downloading.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)
         print(e)
@@ -108,9 +108,9 @@ async def media_rename(event, msg, new_name):
     try:
         if not 'video' in mime:
             UT = time.time()
-            uploader = await fast_upload(out, out, UT, Drone, edit, '**UPLOADING:**')
+            uploader = await fast_upload(out, out, UT, Aziko, edit, '**UPLOADING:**')
             net_time = round(DT - UT)
-            await Drone.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
+            await Aziko.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
         else:
             if 'mp4' in mime:
                 metadata = video_metadata(out)
@@ -119,9 +119,9 @@ async def media_rename(event, msg, new_name):
                 duration = metadata["duration"]
                 attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, supports_streaming=True)]
                 UT = time.time()
-                uploader = await fast_upload(f'{out}', f'{out}', UT, Drone, edit, '**UPLOADING:**')
+                uploader = await fast_upload(f'{out}', f'{out}', UT, Aziko, edit, '**UPLOADING:**')
                 net_time = round(DT - UT)
-                await Drone.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, attributes=attributes, force_document=False)
+                await Aziko.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, attributes=attributes, force_document=False)
             elif msg.video:
                 metadata = video_metadata(out)
                 width = metadata["width"]
@@ -129,14 +129,14 @@ async def media_rename(event, msg, new_name):
                 duration = metadata["duration"]
                 attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, supports_streaming=True)]
                 UT = time.time()
-                uploader = await fast_upload(f'{out}', f'{out}', UT, Drone, edit, '**UPLOADING:**')
+                uploader = await fast_upload(f'{out}', f'{out}', UT, Aziko, edit, '**UPLOADING:**')
                 net_time = round(DT - UT)
-                await Drone.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, attributes=attributes, force_document=False)            
+                await Aziko.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, attributes=attributes, force_document=False)            
             else:
                 UT = time.time()
-                uploader = await fast_upload(out, out, UT, Drone, edit, '**UPLOADING:**')
+                uploader = await fast_upload(out, out, UT, Aziko, edit, '**UPLOADING:**')
                 net_time = round(DT - UT)
-                await Drone.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
+                await Aziko.send_file(event.chat_id, uploader, caption=f"**Renamed by** : @{BOT_UN}\n\nTotal time:{net_time} seconds.", thumb=THUMB, force_document=True)
     except Exception as e:
         await edit.edit(f"An error occured while uploading.\n\nContact [SUPPORT]({SUPPORT_LINK})", link_preview=False)
         print(e)
