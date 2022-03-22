@@ -41,7 +41,7 @@ async def compress(event, msg):
         out = new_name + ext
     DT = time.time()
     log = await LOG_START(event, f'**Siqish boshlandi**\n\nBot navbat bilan ishlaydi')
-    log_end_text = f'**Siqish yakunlandi**\n\nBot hozirda tekin'
+    log_end_text = f'**Siqish yakunlandi**\n\n'
     try:
         await fast_download(n, file, Aziko, edit, DT, "**Yuklanmoqda:**")
     except Exception as e:
@@ -116,7 +116,7 @@ async def compress(event, msg):
     os.remove(name)
     os.remove(out2)
     await log.delete()
-    log_end_text2 = f'**Process yakunlandi**\n\nKetgan vaqt: {round((time.time()-DT)/60)} minut\nOldingi hajm: {i_size/1000000}mb.\nKeyingi hajm: {f_size/1000000}mb.\n\nBot hozircha tekin'
+    log_end_text2 = f'**Process yakunlandi**\n\nKetgan vaqt: {round((time.time()-DT)/60)} minut\nOldingi hajm: {i_size/1000000}mb.\nKeyingi hajm: {f_size/1000000}mb.\n\n'
     await LOG_END(event, log_end_text2)
     
 
