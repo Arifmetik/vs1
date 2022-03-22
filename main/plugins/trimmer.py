@@ -1,7 +1,7 @@
 import time
 import os
 from datetime import datetime as dt
-from .. import Drone, BOT_UN
+from .. import Aziko, BOT_UN
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyfunc import video_metadata, bash
@@ -11,8 +11,8 @@ from telethon.errors.rpcerrorlist import MessageNotModifiedError
 from telethon.tl.types import DocumentAttributeVideo
 
 async def trim(event, msg, st, et):
-    Drone = event.client
-    edit = await Drone.send_message(event.chat_id, "Process boshlandi", reply_to=msg.id)
+    Aziko = event.client
+    edit = await Aziko.send_message(event.chat_id, "Process boshlandi", reply_to=msg.id)
     new_name = "out_" + dt.now().isoformat("_", "seconds")
     if hasattr(msg.media, "document"):
         file = msg.media.document
@@ -37,7 +37,7 @@ async def trim(event, msg, st, et):
         out = new_name + ext
     DT = time.time()
     try:
-        await fast_download(name, file, Drone, edit, DT, "**Yuklanmoqda:**")
+        await fast_download(name, file, Aziko, edit, DT, "**Yuklanmoqda:**")
     except Exception as e:
         print(e)
         return await edit.edit(f"Yuklashda xatolik!\n\nMurojat [ADMIN]({SUPPORT_LINK})", link_preview=False) 
@@ -57,12 +57,12 @@ async def trim(event, msg, st, et):
         height = metadata["height"]
         duration = metadata["duration"]
         attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, supports_streaming=True)]
-        uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-        await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG3, attributes=attributes, force_document=False)
+        uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+        await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG3, attributes=attributes, force_document=False)
     except Exception:
         try:
-            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**Yuborilmoqda:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+            uploader = await fast_upload(f'{out2}', f'{out2}', UT, Aziko, edit, '**Yuborilmoqda:**')
+            await Aziko.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
         except Exception as e:
             print(e)
             return await edit.edit(f"Yuborishda xatolik!\n\nMurojat [ADMIN]({SUPPORT_LINK})", link_preview=False)
