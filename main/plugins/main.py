@@ -1,6 +1,3 @@
-#Tg:ChauhanMahesh/Dronebots
-#Github.com/vasusen-code
-
 import os
 import time
 import asyncio
