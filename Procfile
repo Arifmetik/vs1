@@ -1,1 +1,1 @@
-Drone: python -m main
+Aziko: python -m main
